@@ -1,5 +1,5 @@
 mountpoints:
   /:
-    url: "https://author-p178211-e1869897.adobeaemcloud.com/bin/franklin.delivery/EricaYock/northwelledu/main"
+    url: "https://content.da.live/EricaYock/northwelledu/"
     type: "markup"
     suffix: ".html"
