@@ -1,0 +1,121 @@
+/* stylelint-disable no-descending-specificity -- consolidated variant file */
+
+/* Promo — split content/image band (e.g. "MYNORTHWELL IS HERE") */
+
+.promo > div {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 0;
+  background-color: var(--light-color);
+}
+
+.promo .promo-content {
+  padding: var(--gap-2xl) var(--gap-lg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.promo .promo-content h2,
+.promo .promo-content h3 {
+  font-family: var(--display-font-family);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: var(--heading-font-size-xl);
+  margin-bottom: var(--gap-md);
+}
+
+.promo .promo-content p:not(.button-wrapper) {
+  color: var(--text-color-subtle);
+  line-height: 1.5;
+  margin-bottom: var(--gap-lg);
+  max-width: 46ch;
+}
+
+.promo .promo-img {
+  line-height: 0;
+  overflow: hidden;
+}
+
+.promo .promo-img p {
+  margin: 0;
+  line-height: 0;
+}
+
+.promo .promo-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (width >= 768px) {
+  .promo > div {
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  .promo .promo-content {
+    flex: 1 1 50%;
+    padding: var(--gap-3xl);
+  }
+
+  .promo .promo-img {
+    flex: 1 1 50%;
+    min-height: 420px;
+    position: relative;
+  }
+
+  /* diagonal cut on the left edge of the image */
+  .promo .promo-img img {
+    clip-path: polygon(14% 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+/* ===== Promo Blue variant — solid blue panel, image-left ("save a child's life") ===== */
+.promo.blue > div {
+  background-color: var(--nw-blue);
+  flex-direction: column;
+}
+
+.promo.blue .promo-content h2,
+.promo.blue .promo-content h3 {
+  font-family: var(--heading-font-family);
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 400;
+  font-size: var(--heading-font-size-l);
+  color: var(--background-color);
+}
+
+.promo.blue .promo-content p:not(.button-wrapper) {
+  color: var(--text-on-dark);
+}
+
+/* "Learn more" text link with a triangle marker */
+.promo.blue .promo-content a:any-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--gap-sm);
+  color: var(--nw-blue-pale);
+  font-size: var(--body-font-size-m);
+}
+
+.promo.blue .promo-content a:any-link::before {
+  content: '';
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 6px 0 6px 9px;
+  border-color: transparent transparent transparent var(--nw-blue-pale);
+}
+
+@media (width >= 768px) {
+  .promo.blue > div {
+    flex-direction: row;
+  }
+
+  /* image on the left is not clipped for the blue variant */
+  .promo.blue .promo-img img {
+    clip-path: none;
+  }
+}

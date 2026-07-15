@@ -1,77 +1,139 @@
+/* stylelint-disable no-descending-specificity -- consolidated variant file */
+
 /*
- * Copyright 2020 Adobe. All rights reserved.
- * This file is licensed to you under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License. You may obtain a copy
- * of the License at http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software distributed under
- * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
- * OF ANY KIND, either express or implied. See the License for the specific language
- * governing permissions and limitations under the License.
+ * Northwell Health - Edge Delivery Services
+ * Design system migrated from https://www.northwell.edu/
  */
 
 :root {
+  /* Northwell brand palette */
+  --nw-blue: #0a3bbf;            /* deep royal blue — hero panel, headings on gold */
+  --nw-blue-bright: #0077c8;     /* links, primary buttons */
+  --nw-blue-bright-hover: #005a9e;
+  --nw-blue-light: #4a9fe0;      /* light-blue CTA (Find a doctor) */
+  --nw-blue-pale: #8fc0e8;       /* pale-blue accent text in hero */
+  --nw-cyan: #00a0df;            /* cyan icon circle */
+  --nw-purple: #93268f;          /* magenta/purple icon circle */
+  --nw-gold: #fdb913;            /* gold callout band */
+
   /* colors */
-  --background-color: white;
-  --light-color: #f8f8f8;
-  --dark-color: #505050;
-  --text-color: #131313;
-  --link-color: #3b63fb;
-  --link-hover-color: #1d3ecf;
-  --overlay-background-color:lightgrey;
+  --background-color: #fff;
+  --text-color: #1a1a1a;
+  --text-color-muted: #666;
+  --text-color-subtle: #444;
+  --accent-color: #0077c8;
+  --light-color: #f4f4f4;
+  --dark-color: #2b2b2b;         /* footer charcoal */
+  --cream-color: #f4f4f4;
+  --forest-color: #0a3bbf;
+  --border-color: #d0d0d0;
+  --border-color-light: #e4e4e4;
 
   /* fonts */
-  --body-font-family: roboto, roboto-fallback, sans-serif;
-  --heading-font-family: roboto-condensed, roboto-condensed-fallback, sans-serif;
+  --body-font-family: 'Helvetica Neue', helvetica, arial, sans-serif;
+  --heading-font-family: 'Helvetica Neue', helvetica, arial, sans-serif;
+  --display-font-family: 'Arial Narrow', 'Helvetica Neue Condensed', 'Helvetica Neue', arial, sans-serif;
 
-  /* body sizes */
-  --body-font-size-m: 22px;
-  --body-font-size-s: 19px;
-  --body-font-size-xs: 17px;
+  /* body sizes (mobile-first) */
+  --body-font-size-m: 16px;
+  --body-font-size-s: 14px;
+  --body-font-size-xs: 12px;
 
-  /* heading sizes */
-  --heading-font-size-xxl: 55px;
-  --heading-font-size-xl: 44px;
-  --heading-font-size-l: 34px;
-  --heading-font-size-m: 27px;
-  --heading-font-size-s: 24px;
-  --heading-font-size-xs: 22px;
+  /* heading sizes (mobile-first) */
+  --heading-font-size-xxl: 40px;
+  --heading-font-size-xl: 28px;
+  --heading-font-size-l: 22px;
+  --heading-font-size-m: 20px;
+  --heading-font-size-s: 18px;
+  --heading-font-size-xs: 14px;
 
-  /* nav heights */
+  /* spacing */
+  --section-padding: 48px 0;
+  --container-max-width: 1200px;
+  --container-narrow-max-width: 768px;
+  --container-padding: 0 24px;
+  --gap-xs: 12px;
+  --gap-sm: 8px;
+  --gap-md: 16px;
+  --gap-lg: 24px;
+  --gap-xl: 32px;
+  --gap-2xl: 48px;
+  --gap-3xl: 64px;
+
+  /* nav height */
   --nav-height: 64px;
-  --breadcrumbs-height: 34px;
-  --header-height: var(--nav-height);
+
+  /* buttons — flat rectangular with subtle radius */
+  --button-font-family: var(--body-font-family);
+  --button-font-size: 16px;
+  --button-font-weight: 500;
+  --button-letter-spacing: 0.2px;
+  --button-border-radius: 4px;
+  --button-padding: 14px 28px;
+  --button-transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+
+  /* links */
+  --link-color: #0077c8;
+  --link-hover-color: #005a9e;
+
+  /* transitions */
+  --transition-fast: 0.15s;
+  --transition-normal: 0.3s ease;
+
+  /* border radii */
+  --border-radius-sm: 4px;
+  --card-border-radius: 0;
+
+  /* card shared patterns */
+  --card-hover-shadow: 0 4px 20px rgb(0 0 0 / 8%);
+  --card-hover-transition: background-color 0.15s, border-color 0.15s, box-shadow 0.15s;
+
+  /* tag pill shared patterns — asymmetric padding optically centers uppercase text */
+  --tag-padding: 5px 8px 3px;
+  --tag-font-size: 10.4px;
+  --tag-letter-spacing: 0.52px;
+
+  /* text link (Syncopate underlined link pattern) */
+  --text-link-letter-spacing: 0.84px;
+  --text-link-underline-offset: 3px;
+
+  /* brand */
+  --logo-icon-size: 32px;
+  --brand-letter-spacing: 0.6px;
+
+  /* footer */
+  --footer-link-color: #999;
+
+  /* dark section / overlay text */
+  --text-on-dark: rgb(255 255 255 / 85%);
+  --text-on-dark-muted: rgb(255 255 255 / 55%);
+
+  /* glass card (dark section) */
+  --glass-bg: rgb(255 255 255 / 6%);
+  --glass-border: rgb(255 255 255 / 12%);
 }
 
-/* fallback fonts */
-@font-face {
-  font-family: roboto-condensed-fallback;
-  size-adjust: 88.82%;
-  src: local('Arial');
-}
+/* Northwell uses system Helvetica/Arial stacks — no web fonts required */
 
-@font-face {
-  font-family: roboto-fallback;
-  size-adjust: 99.529%;
-  src: local('Arial');
-}
-
-@media (width >= 900px) {
+/* desktop — content reflow breakpoint */
+@media (width >= 768px) {
   :root {
-    /* body sizes */
     --body-font-size-m: 18px;
     --body-font-size-s: 16px;
     --body-font-size-xs: 14px;
-
-    /* heading sizes */
-    --heading-font-size-xxl: 45px;
-    --heading-font-size-xl: 36px;
-    --heading-font-size-l: 28px;
+    --heading-font-size-xxl: 64px;
+    --heading-font-size-xl: 34px;
+    --heading-font-size-l: 26px;
     --heading-font-size-m: 22px;
     --heading-font-size-s: 20px;
-    --heading-font-size-xs: 18px;
+    --heading-font-size-xs: 14px;
+    --section-padding: 64px 0;
+    --container-padding: 0 24px;
+    --nav-height: 75px;
   }
 }
+
+/* --- RESET & BASE --- */
 
 body {
   display: none;
@@ -80,7 +142,7 @@ body {
   color: var(--text-color);
   font-family: var(--body-font-family);
   font-size: var(--body-font-size-m);
-  line-height: 1.6;
+  line-height: 1.55;
 }
 
 body.appear {
@@ -88,7 +150,10 @@ body.appear {
 }
 
 header {
-  height: var(--header-height);
+  min-height: var(--nav-height);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 header .header,
@@ -101,11 +166,7 @@ footer .footer[data-block-status="loaded"] {
   visibility: visible;
 }
 
-@media (width >= 900px) {
-  body[data-breadcrumbs] {
-    --header-height: calc(var(--nav-height) + var(--breadcrumbs-height));
-  }
-}
+/* --- TYPOGRAPHY --- */
 
 h1,
 h2,
@@ -113,20 +174,40 @@ h3,
 h4,
 h5,
 h6 {
-  margin-top: 0.8em;
-  margin-bottom: 0.25em;
+  margin-top: 0;
+  margin-bottom: var(--gap-xs);
   font-family: var(--heading-font-family);
-  font-weight: 600;
-  line-height: 1.25;
+  font-weight: 700;
+  line-height: 1.2;
   scroll-margin: 40px;
+  color: var(--text-color);
 }
 
 h1 { font-size: var(--heading-font-size-xxl); }
 h2 { font-size: var(--heading-font-size-xl); }
 h3 { font-size: var(--heading-font-size-l); }
-h4 { font-size: var(--heading-font-size-m); }
+
+h4 {
+  font-size: var(--heading-font-size-m);
+}
+
 h5 { font-size: var(--heading-font-size-s); }
-h6 { font-size: var(--heading-font-size-xs); }
+
+h6 {
+  font-size: var(--heading-font-size-xs);
+  letter-spacing: 0.08em;
+}
+
+/* Condensed display headings — the bold uppercase "RAISING HEALTH…" style */
+.display-heading,
+main .section.display h1,
+main .section.display h2 {
+  font-family: var(--display-font-family);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  line-height: 1.02;
+}
 
 p,
 dl,
@@ -134,8 +215,49 @@ ol,
 ul,
 pre,
 blockquote {
-  margin-top: 0.8em;
-  margin-bottom: 0.25em;
+  margin-top: 0;
+  margin-bottom: var(--gap-md);
+}
+
+p {
+  color: var(--text-color);
+  line-height: 1.55;
+}
+
+/* --- VERTICAL RHYTHM: Default content flow --- */
+
+/* Remove trailing margin on last child in any container */
+main .default-content-wrapper > *:last-child,
+main .section > div > *:last-child {
+  margin-bottom: 0;
+}
+
+/* Button wrappers (CTA links) get 24px top margin for breathing room */
+main .default-content-wrapper p.button-wrapper {
+  margin-top: var(--gap-lg);
+  margin-bottom: 0;
+}
+
+/* Consecutive button wrappers: only the first gets the top gap */
+main .default-content-wrapper p.button-wrapper + p.button-wrapper {
+  margin-top: 0;
+}
+
+/* Headings following body paragraphs need extra space above (article flow) —
+   but NOT when following an eyebrow (first p in container) */
+main .default-content-wrapper p + p + h2,
+main .default-content-wrapper p + p + h3 {
+  margin-top: var(--gap-2xl);
+}
+
+main .default-content-wrapper p + p + h4,
+main .default-content-wrapper p + p + h5 {
+  margin-top: var(--gap-xl);
+}
+
+/* Section heading row: 32px below before content */
+main .section > div > h2:first-child {
+  margin-bottom: var(--gap-xl);
 }
 
 code,
@@ -144,15 +266,34 @@ pre {
 }
 
 pre {
-  padding: 16px;
-  border-radius: 8px;
+  padding: var(--gap-md);
+  border-radius: var(--border-radius-sm);
   background-color: var(--light-color);
   overflow-x: auto;
   white-space: pre;
 }
 
+/* blockquote — amber left border, italic */
+blockquote {
+  border-left: 4px solid var(--accent-color);
+  margin: var(--gap-lg) 0;
+  padding: var(--gap-md) var(--gap-lg);
+  font-style: italic;
+  font-size: 20px;
+  line-height: 1.6;
+}
+
+blockquote p {
+  margin-bottom: var(--gap-sm);
+  color: var(--text-color-subtle);
+}
+
+blockquote p:last-child {
+  margin-bottom: 0;
+}
+
 main > div {
-  margin: 40px 16px;
+  margin: 0;
 }
 
 input,
@@ -162,62 +303,7 @@ button {
   font: inherit;
 }
 
-/* links */
-a:any-link {
-  color: var(--link-color);
-  text-decoration: none;
-  overflow-wrap: break-word;
-}
-
-a:hover {
-  color: var(--link-hover-color);
-  text-decoration: underline;
-}
-
-/* buttons */
-a.button:any-link,
-button {
-  box-sizing: border-box;
-  display: inline-block;
-  max-width: 100%;
-  margin: 12px 0;
-  border: 2px solid transparent;
-  border-radius: 2.4em;
-  padding: 0.5em 1.2em;
-  font-family: var(--body-font-family);
-  font-style: normal;
-  font-weight: 500;
-  line-height: 1.25;
-  text-align: center;
-  text-decoration: none;
-  background-color: var(--link-color);
-  color: var(--background-color);
-  cursor: pointer;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-a.button:hover,
-a.button:focus,
-button:hover,
-button:focus {
-  background-color: var(--link-hover-color);
-  cursor: pointer;
-}
-
-button:disabled,
-button:disabled:hover {
-  background-color: var(--light-color);
-  cursor: unset;
-}
-
-a.button.secondary,
-button.secondary {
-  background-color: unset;
-  border: 2px solid currentcolor;
-  color: var(--text-color);
-}
+/* --- IMAGES --- */
 
 main img {
   max-width: 100%;
@@ -236,31 +322,404 @@ main img {
   width: 100%;
 }
 
-/* sections */
+/* --- TAG PILL: shared eyebrow / category label --- */
+
+.tag-pill {
+  display: inline-block;
+  font-family: var(--heading-font-family);
+  font-size: var(--tag-font-size);
+  font-weight: 600;
+  letter-spacing: var(--tag-letter-spacing);
+  background-color: var(--accent-color);
+  color: var(--background-color);
+  padding: var(--tag-padding);
+  border-radius: var(--button-border-radius);
+}
+
+/* --- LINKS --- */
+
+a:any-link {
+  color: var(--link-color);
+  text-decoration: none;
+  overflow-wrap: break-word;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--link-hover-color);
+  text-decoration: underline;
+}
+
+/* focus ring — accessibility */
+*:focus-visible {
+  outline: 2px solid var(--dark-color);
+  outline-offset: 2px;
+}
+
+/* --- BUTTON SYSTEM --- */
+
+/* Button wrappers — display consecutive buttons as a row */
+main p.button-wrapper {
+  display: inline-flex;
+  margin: 0 var(--gap-md) 0 0;
+}
+
+main p.button-wrapper:last-child {
+  margin-right: 0;
+}
+
+p.button-wrapper {
+  margin: 0;
+}
+
+/* Decorated buttons (via p.button-wrapper > a.button) — flat rectangular */
+a.button:any-link {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  margin: 0;
+  border: 2px solid var(--nw-blue-bright);
+  border-radius: var(--button-border-radius);
+  padding: var(--button-padding);
+  font-family: var(--button-font-family);
+  font-size: var(--button-font-size);
+  font-weight: var(--button-font-weight);
+  letter-spacing: var(--button-letter-spacing);
+  line-height: 1.25;
+  text-decoration: none;
+  cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  background-color: var(--nw-blue-bright);
+  color: var(--background-color);
+  transition: var(--button-transition);
+}
+
+a.button:hover {
+  background-color: var(--nw-blue-bright-hover);
+  border-color: var(--nw-blue-bright-hover);
+  color: var(--background-color);
+  text-decoration: none;
+}
+
+/* Primary: bright-blue fill (default look) */
+a.button.primary {
+  border-color: var(--nw-blue-bright);
+  background-color: var(--nw-blue-bright);
+  color: var(--background-color);
+}
+
+/* Secondary/Ghost: white fill, blue outline + text */
+a.button.secondary {
+  border-color: var(--nw-blue-bright);
+  background-color: transparent;
+  color: var(--nw-blue-bright);
+}
+
+a.button.secondary:hover {
+  background-color: var(--nw-blue-bright);
+  color: var(--background-color);
+}
+
+/* Accent: light-blue fill, dark text (hero "Find a doctor") */
+a.button.accent {
+  border-color: var(--nw-blue-light);
+  background-color: var(--nw-blue-light);
+  color: var(--text-color);
+}
+
+a.button.accent:hover {
+  border-color: var(--nw-blue-bright);
+  background-color: var(--nw-blue-bright);
+  color: var(--background-color);
+}
+
+
+/* button groups — stack on mobile */
+@media (width < 768px) {
+  .button-wrapper + .button-wrapper {
+    margin-top: var(--gap-sm);
+  }
+
+  .button-wrapper + .button-wrapper a.button,
+  .button-wrapper + .button-wrapper button.button {
+    width: 100%;
+  }
+}
+
+/* --- SECTIONS --- */
+
 main > .section {
-  margin: 40px 0;
+  margin: 0;
+  padding: var(--section-padding);
 }
 
 main > .section > div {
-  max-width: 1200px;
+  max-width: var(--container-max-width);
   margin: auto;
-  padding: 0 24px;
+  padding: var(--container-padding);
+}
+
+/* Vertical spacing between adjacent block/content wrappers in the same section */
+main > .section > [class$="-wrapper"] + [class$="-wrapper"],
+main > .section > [class$="-wrapper"] + .default-content-wrapper,
+main > .section > .default-content-wrapper + [class$="-wrapper"] {
+  margin-top: var(--gap-2xl);
+}
+
+/* Section header row: a heading + "View all/more" link that precedes a
+   cards or carousel block. Lay them out on one line, link right-aligned. */
+main > .section:has(> .cards-wrapper, > .carousel-wrapper)
+  > .default-content-wrapper:first-child {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--gap-sm) var(--gap-lg);
+  border-bottom: 1px solid var(--border-color-light);
+  padding-bottom: var(--gap-md);
+}
+
+main > .section:has(> .cards-wrapper, > .carousel-wrapper)
+  > .default-content-wrapper:first-child > h2 {
+  order: 1;
+  margin: 0;
+}
+
+/* the "View all / View more" link sits at the right of the heading row */
+main > .section:has(> .cards-wrapper, > .carousel-wrapper)
+  > .default-content-wrapper:first-child > p:last-child {
+  order: 2;
+  margin: 0;
+}
+
+main > .section:has(> .cards-wrapper, > .carousel-wrapper)
+  > .default-content-wrapper:first-child > p:last-child a {
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* subtitle paragraph (e.g. "Find out what's happening now…") spans full width */
+main > .section:has(> .cards-wrapper, > .carousel-wrapper)
+  > .default-content-wrapper:first-child > p:not(:last-child) {
+  order: 3;
+  flex-basis: 100%;
+  margin: 0;
+  color: var(--text-color-muted);
 }
 
 main > .section:first-of-type {
   margin-top: 0;
+  padding-top: 0;
 }
 
-@media (width >= 900px) {
-  main > .section > div {
-    padding: 0 32px;
-  }
+/* Hide empty sections */
+main > .section:not(:has(> *)) {
+  display: none;
 }
 
-/* section metadata */
+/* --- SECTION METADATA STYLES --- */
+
+/* Highlight / Light: beige bg */
 main .section.light,
 main .section.highlight {
   background-color: var(--light-color);
+}
+
+/* Dark: dark bg, white text */
+main > .section.dark {
+  background-color: var(--dark-color);
+  color: var(--background-color);
+
+  --btn-shadow: var(--accent-color);
+}
+
+main > .section.dark h1,
+main > .section.dark h2,
+main > .section.dark h3,
+main > .section.dark h4,
+main > .section.dark h5,
+main > .section.dark h6 {
+  color: var(--background-color);
+}
+
+main > .section.dark p:not(.tag-pill) {
+  color: var(--text-on-dark);
+}
+
+main > .section.dark a:any-link:not(.button) {
+  color: var(--accent-color);
+}
+
+/* dark section: primary button inverts to white fill + amber shadow */
+main > .section.dark a.button.primary {
+  border-color: var(--background-color);
+  background-color: var(--background-color);
+  color: var(--dark-color);
+}
+
+/* dark section: ghost button uses white outline */
+main > .section.dark a.button.secondary {
+  border-color: rgb(255 255 255 / 50%);
+  background-color: transparent;
+  color: var(--background-color);
+}
+
+main > .section.dark a.button.secondary:hover {
+  background-color: var(--background-color);
+  border-color: var(--background-color);
+  color: var(--dark-color);
+}
+
+/* dark section: focus ring uses white */
+main > .section.dark *:focus-visible {
+  outline-color: var(--background-color);
+}
+
+/* Accent: gold bg, blue text (the "MOST AWARDED HEALTH SYSTEM" band) */
+main > .section.accent {
+  background-color: var(--nw-gold);
+  color: var(--nw-blue);
+}
+
+main > .section.accent h1,
+main > .section.accent h2,
+main > .section.accent h3,
+main > .section.accent h4,
+main > .section.accent h5,
+main > .section.accent h6 {
+  color: var(--nw-blue);
+}
+
+main > .section.accent p {
+  color: var(--nw-blue);
+}
+
+main > .section.accent > div > p:not(.tag-pill) {
+  font-size: 18px;
+}
+
+/* accent section: primary button uses blue fill */
+main > .section.accent a.button.primary {
+  border-color: var(--nw-blue);
+  background-color: var(--nw-blue);
+  color: var(--background-color);
+}
+
+main > .section.accent a.button.primary:hover {
+  border-color: var(--nw-blue-bright);
+  background-color: var(--nw-blue-bright);
+}
+
+main > .section.accent a.button.secondary {
+  border-color: var(--nw-blue);
+  color: var(--nw-blue);
+  background-color: transparent;
+}
+
+/* Blue: deep royal-blue bg, white text */
+main > .section.blue {
+  background-color: var(--nw-blue);
+  color: var(--background-color);
+}
+
+main > .section.blue h1,
+main > .section.blue h2,
+main > .section.blue h3,
+main > .section.blue h4,
+main > .section.blue h5,
+main > .section.blue h6 {
+  color: var(--background-color);
+}
+
+main > .section.blue p:not(.tag-pill) {
+  color: var(--text-on-dark);
+}
+
+main > .section.blue a:any-link:not(.button) {
+  color: var(--nw-blue-pale);
+}
+
+/* Secondary: light bg (kept for backward compatibility) */
+main > .section.secondary {
+  background-color: var(--light-color);
+}
+
+/* Narrow: constrains content to narrow max-width */
+main .section.narrow > div {
+  max-width: var(--container-narrow-max-width);
+}
+
+/* Center: explicit text + button centering (opt-in via section-metadata) */
+main > .section.center {
+  text-align: center;
+}
+
+main > .section.center .button-group {
+  justify-content: center;
+}
+
+main > .section.center .button-wrapper {
+  display: inline-block;
+  margin: 4px 8px;
+}
+
+/* Accent section: tag pill uses dark bg instead of accent */
+main .section.accent .tag-pill {
+  background-color: var(--dark-color);
+}
+
+/* Body paragraphs in dark/narrow sections */
+main .section.dark.narrow p:not(.tag-pill) {
+  font-size: var(--body-font-size-m);
+  line-height: 1.6;
+}
+
+main .section.dark.narrow h2 {
+  margin-bottom: var(--gap-lg);
+}
+
+/* --- ARTICLE BODY --- */
+
+/* article body — narrow reading column after hero (article) */
+.hero-container:has(.article) + .section > div {
+  max-width: var(--container-narrow-max-width);
+}
+
+/* image captions in article body */
+.hero-container:has(.article) + .section > div > p:has(> img) + p {
+  font-size: var(--body-font-size-s);
+  color: var(--text-color-muted);
+  font-style: italic;
+  margin-top: -8px;
+}
+
+/* --- BUTTON GROUP --- */
+
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap-xs);
+  margin: var(--gap-xs) 0;
+}
+
+
+main .default-content-wrapper .button-group p.button-wrapper {
   margin: 0;
-  padding: 40px 0;
+}
+
+/* --- REDUCED MOTION — ACCESSIBILITY --- */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

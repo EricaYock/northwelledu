@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 44" role="img" aria-label="Northwell Health">
+  <!-- pinwheel mark (simplified multicolor grid) -->
+  <g>
+    <rect x="0" y="8" width="6" height="6" fill="#00a0df"/>
+    <rect x="7" y="8" width="6" height="6" fill="#0a3bbf"/>
+    <rect x="14" y="8" width="6" height="6" fill="#93268f"/>
+    <rect x="0" y="15" width="6" height="6" fill="#0a3bbf"/>
+    <rect x="7" y="15" width="6" height="6" fill="#93268f"/>
+    <rect x="14" y="15" width="6" height="6" fill="#e03a3e"/>
+    <rect x="0" y="22" width="6" height="6" fill="#fdb913"/>
+    <rect x="7" y="22" width="6" height="6" fill="#e03a3e"/>
+    <rect x="14" y="22" width="6" height="6" fill="#f47b20"/>
+    <rect x="0" y="29" width="6" height="6" fill="#7ac143"/>
+    <rect x="7" y="29" width="6" height="6" fill="#fdb913"/>
+    <rect x="14" y="29" width="6" height="6" fill="#00a0df"/>
+  </g>
+  <!-- wordmark -->
+  <text x="30" y="28" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="24" font-weight="700" fill="#0a3bbf">Northwell</text>
+  <text x="158" y="28" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="24" font-weight="400" fill="#0a3bbf">Health</text>
+</svg>

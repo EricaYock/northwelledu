@@ -1,0 +1,18 @@
+{
+  "url": "https://www.northwell.edu/",
+  "canonical": "https://www.northwell.edu/",
+  "lang": "en",
+  "title": "Northwell Health",
+  "description": "Northwell Health is New York's largest healthcare provider, serving NYC, Long Island and Westchester with compassionate care through research and innovation.",
+  "keywords": "homepage, home page, home",
+  "ogType": "website",
+  "sourceFile": "import-work/northwell.html",
+  "sourceAssets": "import-work/Northwell Health_files",
+  "platform": "Drupal + nwhlit web-component design system (custom elements with shadow DOM)",
+  "notes": "Content lives in the light-DOM slots of nwhlit-* custom elements. Saved via browser 'Web Page, Complete'.",
+  "logos": [
+    "northwell-logo-horizontal_1.png",
+    "northwell-logo-horizontal_2.png",
+    "northwell-logo-horizontal_white_0.png (footer, white)"
+  ]
+}

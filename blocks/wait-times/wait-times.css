@@ -1,0 +1,131 @@
+/* Wait times — light panel with tabs + location list + action buttons */
+
+.wait-times {
+  background-color: var(--light-color);
+  padding: var(--gap-2xl) var(--gap-lg);
+}
+
+.wait-times-title {
+  font-size: var(--heading-font-size-l);
+  font-weight: 400;
+  margin-bottom: var(--gap-lg);
+}
+
+/* tab bar */
+.wait-times-tabs {
+  display: flex;
+  gap: var(--gap-xl);
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: var(--gap-xl);
+}
+
+.wait-times-tab {
+  border: none;
+  background: transparent;
+  padding: 0 0 var(--gap-md);
+  margin-bottom: -1px;
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-m);
+  color: var(--nw-blue-bright);
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+}
+
+.wait-times-tab[aria-selected="true"] {
+  color: var(--text-color);
+  border-bottom-color: var(--nw-gold);
+}
+
+/* carousel: arrows flanking a horizontally scrollable track */
+.wait-times-carousel {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-xs);
+  margin-bottom: var(--gap-xl);
+}
+
+.wait-times-viewport {
+  flex: 1 1 auto;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.wait-times-viewport::-webkit-scrollbar {
+  display: none;
+}
+
+.wait-times-arrow {
+  flex: 0 0 auto;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: transparent;
+  color: var(--nw-blue-bright);
+  font-size: 30px;
+  line-height: 1;
+  cursor: pointer;
+  transition: color var(--transition-fast);
+}
+
+.wait-times-arrow:hover {
+  color: var(--nw-blue-bright-hover);
+}
+
+/* locations track */
+.wait-times-locations {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 100%;
+  gap: var(--gap-lg);
+}
+
+.wait-times-location {
+  scroll-snap-align: start;
+  display: flex;
+  align-items: baseline;
+  gap: var(--gap-md);
+}
+
+.wait-times-min {
+  font-size: var(--heading-font-size-m);
+  color: var(--text-color);
+  white-space: nowrap;
+  min-width: 3.5em;
+}
+
+.wait-times-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.wait-times-name {
+  color: var(--nw-blue-bright);
+  font-size: var(--body-font-size-m);
+}
+
+.wait-times-facility {
+  color: var(--text-color-muted);
+  font-size: var(--body-font-size-s);
+}
+
+/* actions */
+.wait-times-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap-md);
+}
+
+@media (width >= 768px) {
+  .wait-times {
+    padding: var(--gap-3xl);
+  }
+
+  /* show 3 locations per view on desktop */
+  .wait-times-locations {
+    grid-auto-columns: calc((100% - 2 * var(--gap-lg)) / 3);
+  }
+}

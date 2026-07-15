@@ -1,24 +1,36 @@
+/* stylelint-disable no-descending-specificity -- consolidated variant file */
+
+/* Hero block — base (full-bleed overlay) + variants (article) */
+
+/* Shared: full-bleed container — no section padding on hero */
+main > .hero-container {
+  padding: 0;
+}
+
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
 }
 
-.hero {
-  position: relative;
-  padding: 40px 24px;
-  min-height: 300px;
-}
+/* ===== Base hero (full-bleed overlay with gradient) ===== */
 
-.hero h1 {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  color: var(--background-color);
+/* Set hero button shadow color — black on hero (over image) */
+.hero {
+  --btn-shadow: var(--dark-color);
+
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: min(65vh, 400px);
+  padding: var(--gap-2xl) var(--gap-lg);
+  overflow: hidden;
+  color: var(--text-on-dark);
 }
 
 .hero picture {
   position: absolute;
-  z-index: -1;
+  z-index: 0;
   inset: 0;
   object-fit: cover;
   box-sizing: border-box;
@@ -30,8 +42,395 @@
   height: 100%;
 }
 
-@media (width >= 900px) {
+/* overlay gradient — bottom-to-top for text readability */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(0deg, rgb(0 0 0 / 75%) 0%, rgb(0 0 0 / 45%) 40%, rgb(0 0 0 / 25%));
+  pointer-events: none;
+}
+
+.hero > div {
+  position: relative;
+  z-index: 2;
+  max-width: var(--container-max-width);
+  width: 100%;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.hero h1,
+.hero h2,
+.hero h3,
+.hero h4,
+.hero h5,
+.hero h6 {
+  color: var(--background-color);
+  margin-bottom: var(--gap-lg);
+  text-shadow: 0 1px 3px rgb(0 0 0 / 35%);
+}
+
+.hero h1 {
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  max-width: 608px;
+}
+
+.hero p:not(.tag-pill) {
+  color: var(--text-on-dark);
+  font-size: var(--body-font-size-m);
+  line-height: 1.6;
+  max-width: 608px;
+  text-shadow: 0 1px 3px rgb(0 0 0 / 35%);
+}
+
+/* eyebrow pill — uses .tag-pill utility, adds hero-specific overrides */
+.hero .tag-pill {
+  margin-bottom: var(--gap-md);
+  text-shadow: none;
+}
+
+/* lead paragraph — after h1 */
+.hero > div > h1 + p {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--text-on-dark);
+  max-width: 608px;
+  margin-bottom: var(--gap-lg);
+}
+
+/* button group — higher specificity to override .section.dark .button-group centering */
+.section .hero .button-group {
+  justify-content: flex-start;
+}
+
+.hero .button-wrapper {
+  display: inline-block;
+  margin-right: var(--gap-md);
+}
+
+.hero .button-wrapper:last-child {
+  margin-right: 0;
+}
+
+/*
+ * Hero buttons — must override the global reset (main a.button:any-link)
+ * which strips padding, border-radius, box-shadow, font-size, etc.
+ * Specificity of reset: 0,2,1 — we use main .hero a.button:any-link (0,3,1)
+ */
+main .hero a.button:any-link {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--button-border-radius);
+  padding: var(--button-padding);
+  font-family: var(--button-font-family);
+  font-size: var(--button-font-size);
+  font-weight: var(--button-font-weight);
+  letter-spacing: var(--button-letter-spacing);
+  line-height: 1.25;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  box-shadow: 3px 3px 0 0 var(--btn-shadow, var(--dark-color));
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+main .hero a.button:any-link:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 0 var(--btn-shadow, var(--dark-color));
+  text-decoration: none;
+}
+
+main .hero a.button:any-link:active {
+  transform: translateY(0);
+  box-shadow: 0 0 0 var(--btn-shadow, var(--dark-color));
+}
+
+/* primary button on hero — accent bg, dark text */
+main .hero a.button.primary:any-link {
+  background: var(--accent-color);
+  border: 2px solid var(--accent-color);
+  color: var(--dark-color);
+}
+
+main .hero a.button.primary:any-link:hover {
+  filter: brightness(0.9);
+}
+
+/* secondary button on hero — white outline, dark shadow */
+main .hero a.button.secondary:any-link {
+  background: transparent;
+  border: 2px solid rgb(255 255 255 / 50%);
+  color: var(--background-color);
+}
+
+main .hero a.button.secondary:any-link:hover {
+  border-color: var(--background-color);
+  background-color: var(--accent-color);
+  color: var(--dark-color);
+}
+
+@media (width < 768px) {
+  .section .hero .button-group {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--gap-sm);
+  }
+
+  .hero .button-wrapper {
+    margin-right: 0;
+  }
+
+  main .hero a.button:any-link {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (width >= 768px) {
   .hero {
-    padding: 40px 32px;
+    min-height: 65vh;
+    padding: var(--gap-3xl) var(--gap-xl);
+  }
+
+  .hero p:not(.tag-pill) {
+    font-size: 20px;
+  }
+
+  .hero h1 {
+    font-size: var(--heading-font-size-xxl);
+    letter-spacing: -1.12px;
+  }
+}
+
+/* ===== Hero Article variant ===== */
+.hero.article {
+  min-height: min(55vh, 380px);
+}
+
+.hero.article p:not(.tag-pill) {
+  font-size: inherit;
+  line-height: inherit;
+  max-width: none;
+  margin: 0;
+}
+
+/* breadcrumbs — reset eyebrow styles from base */
+.hero.article > div > p:first-child {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  text-transform: none;
+  color: var(--text-on-dark);
+  margin-bottom: var(--gap-xl);
+}
+
+.hero.article a {
+  color: rgb(255 255 255 / 70%);
+  font-size: var(--body-font-size-s);
+}
+
+/* tag line — "Expedition · Americas · Hiking" (non-pill, text-only) */
+.hero.article > div > p:nth-child(2) {
+  font-family: var(--heading-font-family);
+  font-size: var(--tag-font-size);
+  font-weight: 600;
+  letter-spacing: var(--tag-letter-spacing);
+  color: var(--accent-color);
+  margin-bottom: var(--gap-md);
+}
+
+/* em-wrapped tag pills — uses .tag-pill utility, adds hero article overrides */
+.hero.article .tag-pill {
+  font-style: normal;
+  margin-right: var(--gap-sm);
+  margin-bottom: var(--gap-md);
+}
+
+/* author avatar — paragraph right after h1 containing only an img */
+.hero.article > div > h1 + p > img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgb(255 255 255 / 30%);
+}
+
+/* fallback: attribute-based avatar detection */
+.hero.article img[width="44"],
+.hero.article img[alt*="avatar"] {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgb(255 255 255 / 30%);
+}
+
+/* author name */
+.hero.article > div > h1 + p + p {
+  font-weight: 700;
+  color: var(--background-color);
+  margin-top: var(--gap-sm);
+}
+
+/* author date/read time */
+.hero.article > div > h1 + p + p + p {
+  color: var(--text-on-dark-muted);
+  font-size: var(--body-font-size-s);
+}
+
+@media (width >= 768px) {
+  .hero.article {
+    min-height: min(55vh, 420px);
+  }
+}
+
+/* ===== Hero Northwell variant — angled blue panel over right-aligned image ===== */
+.hero.northwell {
+  --btn-shadow: transparent;
+
+  display: block;
+  min-height: min(78vh, 620px);
+  padding: 0;
+  color: var(--background-color);
+}
+
+/* image fills the whole hero, anchored to the right */
+.hero.northwell picture {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero.northwell img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: right top;
+}
+
+/* remove the base bottom-up gradient — Northwell uses a solid angled panel */
+.hero.northwell::after {
+  display: none;
+}
+
+/* the solid blue content panel */
+.hero.northwell > div {
+  position: relative;
+  z-index: 2;
+  max-width: none;
+  width: 100%;
+  margin: 0;
+  padding: var(--gap-2xl) var(--gap-lg);
+  background-color: var(--nw-blue);
+}
+
+.hero.northwell h1 {
+  font-family: var(--display-font-family);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  line-height: 1.02;
+  color: var(--background-color);
+  text-shadow: none;
+  margin-bottom: var(--gap-lg);
+  max-width: 100%;
+}
+
+/* highlighted word ("HEALTH") — authored as inline code or mark */
+.hero.northwell h1 mark,
+.hero.northwell h1 code {
+  background-color: rgb(255 255 255 / 25%);
+  color: var(--background-color);
+  padding: 0 0.12em;
+  border-radius: 2px;
+  font: inherit;
+}
+
+/* accent phrase ("MORE NEW YORKERS") — authored with emphasis */
+.hero.northwell h1 em {
+  font-style: normal;
+  color: var(--nw-blue-pale);
+}
+
+.hero.northwell p:not(.tag-pill) {
+  color: var(--text-on-dark);
+  font-size: var(--body-font-size-m);
+  line-height: 1.5;
+  max-width: 34ch;
+  text-shadow: none;
+  margin-bottom: var(--gap-lg);
+}
+
+/* Find a doctor button — light blue with white text for contrast */
+main .hero.northwell a.button:any-link {
+  background-color: var(--nw-blue-light);
+  border: 2px solid var(--nw-blue-light);
+  border-radius: var(--button-border-radius);
+  color: #fff;
+  box-shadow: none;
+  font-weight: 600;
+}
+
+main .hero.northwell a.button:any-link:hover {
+  transform: none;
+  background-color: #fff;
+  border-color: #fff;
+  color: var(--nw-blue);
+  box-shadow: none;
+}
+
+@media (width >= 768px) {
+  .hero.northwell {
+    display: flex;
+    align-items: center;
+  }
+
+  .hero.northwell > div {
+    position: relative;
+    box-sizing: border-box;
+    width: 48%;
+    min-height: min(78vh, 620px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: var(--gap-3xl);
+
+    /* diagonal cut on the top-right edge of the panel:
+       top edge runs to 80%, then cuts down to the right edge at 24% height */
+    clip-path: polygon(0 0, 80% 0, 100% 24%, 100% 100%, 0 100%);
+  }
+
+  /* light-blue accent triangle filling the panel's diagonal cut, flush against
+     the dark-blue edge. Box spans 80%→100% of the panel width (= 38.4%→48% of
+     the hero) and 0→24% height; the shared diagonal runs (0,0)→(100%,100%),
+     with the panel below-left and this light-blue wedge above-right. */
+  .hero.northwell::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 38.4%;
+    width: 9.6%;
+    height: 24%;
+    background-color: var(--nw-blue-light);
+    clip-path: polygon(0 0, 100% 0, 100% 100%);
+    z-index: 3;
+    pointer-events: none;
+  }
+
+  .hero.northwell h1 {
+    font-size: clamp(48px, 5vw, 72px);
+    margin-bottom: var(--gap-lg);
+  }
+
+  .hero.northwell p:not(.tag-pill) {
+    font-size: var(--body-font-size-m);
   }
 }

@@ -1,0 +1,105 @@
+/* Icon cards — "I am looking to" row of centered, icon-topped columns */
+
+.icon-cards > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--gap-2xl);
+}
+
+.icon-cards > ul > li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 var(--gap-lg);
+}
+
+/* circular colored icon */
+.icon-cards-icon {
+  margin-bottom: var(--gap-md);
+  line-height: 0;
+}
+
+.icon-cards-icon p {
+  margin: 0;
+  line-height: 0;
+}
+
+.icon-cards-icon img {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* EDS icon token → colored circle with white glyph */
+.icon-cards-icon .icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  background-color: var(--nw-cyan);
+}
+
+.icon-cards-icon .icon img {
+  width: 48px;
+  height: 48px;
+  border-radius: 0;
+}
+
+/* per-column circle colors: cyan, blue, purple (matches source) */
+.icon-cards > ul > li:nth-child(1) .icon-cards-icon .icon { background-color: var(--nw-cyan); }
+.icon-cards > ul > li:nth-child(2) .icon-cards-icon .icon { background-color: var(--nw-blue); }
+.icon-cards > ul > li:nth-child(3) .icon-cards-icon .icon { background-color: var(--nw-purple); }
+
+.icon-cards-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--gap-sm);
+}
+
+.icon-cards-body h3,
+.icon-cards-body h4,
+.icon-cards-body h5 {
+  margin: 0;
+  font-size: var(--heading-font-size-m);
+  color: var(--nw-blue-bright);
+}
+
+.icon-cards-body h3 a,
+.icon-cards-body h4 a,
+.icon-cards-body h5 a {
+  color: var(--nw-blue-bright);
+  text-decoration: none;
+}
+
+.icon-cards-body h3 a:hover,
+.icon-cards-body h4 a:hover,
+.icon-cards-body h5 a:hover {
+  text-decoration: underline;
+}
+
+.icon-cards-body p {
+  margin: 0;
+  color: var(--text-color);
+  line-height: 1.5;
+  max-width: 30ch;
+}
+
+@media (width >= 768px) {
+  .icon-cards > ul {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+  }
+
+  /* vertical dividers between items */
+  .icon-cards > ul > li + li {
+    border-left: 1px solid var(--border-color-light);
+  }
+}
